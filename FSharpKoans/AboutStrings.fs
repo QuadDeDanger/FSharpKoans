@@ -6,24 +6,23 @@ module ``13: String manipulation`` =
     let ``01 Finding the length of a string`` () =
         let a = "calamari"
         let b = "It's-a me, Maaario!"
-        String.FILL_ME_IN a |> should equal 8
-        String.FILL_ME_IN b |> should equal 19
+        String.length a |> should equal 8
+        String.length b |> should equal 19
 
     [<Test>]
     let ``02 Getting a substring (Part 1).`` () =
         let a = "bright"
-        a.[1..] |> should equal __
+        a.[1..] |> should equal "right"
 
     [<Test>]
     let ``03 Getting a substring (Part 2).`` () =
         let a = "bright"
-        a.[..3] |> should equal __
+        a.[..3] |> should equal "ght"
 
     [<Test>]
     let ``04 Getting a substring (Part 3).`` () =
         let a = "bright"
-        a.[1..3] |> should equal __
-
+        a.[1..3] |> should equal "rig"
     [<Test>]
     let ``05 Concatenating strings`` () =
         let a = ["hip"; "hip"; "hurray"]
@@ -48,22 +47,22 @@ module ``13: String manipulation`` =
 
     [<Test>]
     let ``07 String formatting: %s format specifier`` () =
-        let result = sprintf __ "perfect"
+        let result = sprintf "%s" "perfect"
         result |> should equal "Practice makes perfect."
 
     [<Test>]
     let ``08 String formatting: %d format specifier`` () =
-        let result = sprintf __ 9
+        let result = sprintf "%d" 9
         result |> should equal "9 planets, Sir, endlessly circle, Sir"
 
     [<Test>]
     let ``09 String formatting: %b format specifier`` () =
-        let result = sprintf __ true
+        let result = sprintf "%b" true
         result |> should equal "It's true, it is."
 
     [<Test>]
     let ``10 String formatting: %c format specifier`` () =
-        let result = sprintf __ 'X'
+        let result = sprintf "%c" 'X'
         result |> should equal "X marks the spot."
 
     // specify a precision using %.Nf, where N is an integer
@@ -71,18 +70,18 @@ module ``13: String manipulation`` =
     // The default precision is about 6, as near as I can tell.
     [<Test>]
     let ``11 String formatting: %f format specifier`` () =
-        let result = sprintf __ 2.26
-        let condensed = sprintf __ 2.26
-        let rounded = sprintf __ 2.26
+        let result = sprintf "%f" 2.26
+        let condensed = sprintf "%f" 2.26
+        let rounded = sprintf "%f" 2.26
         result |> should equal "Multiply by 2.260000, then triple"
         condensed |> should equal "Multiply by 2.26, then triple"
         rounded |> should equal "Multiply by 2.3, then triple"
 
     [<Test>]
     let ``12 String formatting: %A format specifier`` () =
-        let result = sprintf __ [7.4; 7.31; 6.55]
+        let result = sprintf "%A" [7.4; 7.31; 6.55]
         result |> should equal "Control scores: [7.4; 7.31; 6.55] (after transform)"
-        let moreResult = sprintf __ (8,3,"UTC")
+        let moreResult = sprintf "%A" (8,3,"UTC")
         moreResult |> should equal "The (8, 3, \"UTC\") time-coordinate was used."
 
    // double-up a % to get a % in.

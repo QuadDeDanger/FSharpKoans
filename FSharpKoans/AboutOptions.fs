@@ -96,7 +96,7 @@ module ``11: Exploring types, options, and results`` =
             | _, true -> Error DivisionByZero
             | _ ->
                 // 'sqrt' is the square-root function
-                Ok(sqrt n / m)
+                Ok (sqrt n / m)
         f -6.0 2.5 |> should equal (Error NegativeNumberSupplied)
-        //f 50.0 2.0 |> should equal (Ok 5.0)
+        f 50.0 2.0 |> should equal (Ok 5.0)
         f 7.3 0.0 |> should equal (Error DivisionByZero)
